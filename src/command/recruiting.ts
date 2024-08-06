@@ -106,13 +106,13 @@ export const recruiting = () => {
     bot.onText(/\/채용/, (msg) => {
         const chatID = msg.chat.id;
         const options = {
-            reply_markup: JSON.stringify({
+            reply_markup: {
                 inline_keyboard: [
                     [{ text: '대기업', callback_data: 'large' }],
                     [{ text: '중견기업', callback_data: 'medium' }],
                     [{ text: '공공기관', callback_data: 'public' }],
                 ],
-            }),
+            },
         };
         bot.sendMessage(chatID, '어떤 규모의 기업에 관심이 있으신가요?', options);
     });
@@ -153,9 +153,9 @@ export const recruiting = () => {
         }
 
         const options = {
-            reply_markup: JSON.stringify({
+            reply_markup: {
                 inline_keyboard: keyboard,
-            }),
+            },
         };
         bot.sendMessage(chatID, '어떤 기업에 관심이 있으신가요?', options);
     };
@@ -165,9 +165,9 @@ export const recruiting = () => {
         const keyboard = jobCategory.map((category) => [{ text: category, callback_data: `category_${category}` }]);
 
         const options = {
-            reply_markup: JSON.stringify({
+            reply_markup: {
                 inline_keyboard: keyboard,
-            }),
+            },
         };
         bot.sendMessage(chatID, '어떤 직군에 관심이 있으신가요?', options);
     };
@@ -179,9 +179,9 @@ export const recruiting = () => {
         const keyboard = jobList.map((job) => [{ text: job, callback_data: `job_${job}` }]);
 
         const options = {
-            reply_markup: JSON.stringify({
+            reply_markup: {
                 inline_keyboard: keyboard,
-            }),
+            },
         };
         bot.sendMessage(chatID, '구체적으로 어떤 직업에 관심이 있으신가요?', options);
     };
