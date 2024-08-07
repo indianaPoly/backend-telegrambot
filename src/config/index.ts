@@ -1,3 +1,3 @@
 /** @format */
 
-export * from './telegram.ts';
+export * from './telegram';

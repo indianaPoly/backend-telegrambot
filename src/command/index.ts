@@ -1,7 +1,7 @@
 /** @format */
 
-export * from './start.js';
-export * from './help.js';
-export * from './resume.js';
-export * from './insight.js';
-export * from './recruiting.js';
+export * from './start';
+export * from './help';
+export * from './resume';
+export * from './insight';
+export * from './recruiting';

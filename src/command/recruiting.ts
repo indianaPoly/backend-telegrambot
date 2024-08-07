@@ -118,26 +118,28 @@ export const recruiting = () => {
     });
 
     bot.on('callback_query', async (callbackQuery) => {
-        const chatID = callbackQuery.message.chat.id;
-        const data = callbackQuery.data;
+        if (callbackQuery.message !== undefined) {
+            const chatID = callbackQuery.message.chat.id;
+            const data = callbackQuery.data;
 
-        if (!userStates[chatID]) {
-            userStates[chatID] = {};
-        }
+            if (!userStates[chatID]) {
+                userStates[chatID] = {};
+            }
 
-        if (data === 'large' || data === 'medium' || data === 'public') {
-            userStates[chatID].companySize = data;
-            showCompanies(chatID);
-        } else if (data.startsWith('company_')) {
-            userStates[chatID].company = data.split('_')[1];
-            showJobCategories(chatID);
-        } else if (data.startsWith('category_')) {
-            userStates[chatID].category = data.split('_')[1];
-            showJobList(chatID);
+            if (data === 'large' || data === 'medium' || data === 'public') {
+                userStates[chatID].companySize = data;
+                showCompanies(chatID);
+            } else if (data.startsWith('company_')) {
+                userStates[chatID].company = data.split('_')[1];
+                showJobCategories(chatID);
+            } else if (data.startsWith('category_')) {
+                userStates[chatID].category = data.split('_')[1];
+                showJobList(chatID);
+            }
         }
     });
 
-    const showCompanies = (chatID) => {
+    const showCompanies = (chatID: number) => {
         let keyboard;
 
         const large_companies = ['삼성', 'LG', 'SK', '현대'];
@@ -160,7 +162,7 @@ export const recruiting = () => {
         bot.sendMessage(chatID, '어떤 기업에 관심이 있으신가요?', options);
     };
 
-    const showJobCategories = (chatID) => {
+    const showJobCategories = (chatID: number) => {
         const jobCategory = JOB.map((item) => item.JobCategory);
         const keyboard = jobCategory.map((category) => [{ text: category, callback_data: `category_${category}` }]);
 
@@ -172,7 +174,7 @@ export const recruiting = () => {
         bot.sendMessage(chatID, '어떤 직군에 관심이 있으신가요?', options);
     };
 
-    const showJobList = (chatID) => {
+    const showJobList = (chatID: number) => {
         const category = userStates[chatID].category;
         const jobList = JOB.filter((item) => item.JobCategory === category).map((item) => item.JobCategoryList)[0];
 

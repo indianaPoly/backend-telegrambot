@@ -1,9 +1,8 @@
 /** @format */
-import { help, start } from './command/index.js';
+import { insight } from './command/index';
 
 const main = () => {
-    start();
-    help();
+    insight();
 };
 
 main();
