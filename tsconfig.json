@@ -2,12 +2,11 @@
     "compilerOptions": {
         "strict": true,
         "allowJs": true,
-        "module": "CommonJS",
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
         "target": "ES5",
         "moduleResolution": "Node",
-        "outDir": "/dist",
+        "outDir": "./dist",
         "rootDir": "./src",
         "allowImportingTsExtensions": true,
         "noEmit": true
