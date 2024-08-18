@@ -4,7 +4,7 @@ import { handleRecommand } from './recommand/index';
 import { handleArticles } from './article/index';
 
 export const resume = () => {
-  bot.onText(/\/자소서/, (msg) => {
+  bot.onText(/\/resume/, (msg) => {
     const chatID = msg.chat.id;
     const options = {
       reply_markup: {

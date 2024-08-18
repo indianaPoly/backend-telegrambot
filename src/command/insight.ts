@@ -3,7 +3,7 @@
 import { bot } from '../config/telegram';
 
 export const insight = () => {
-  bot.onText(/\/리뷰/, (msg) => {
+  bot.onText(/\/review/, (msg) => {
     const chatID = msg.chat.id;
     const options = {
       reply_markup: {
@@ -47,12 +47,5 @@ export const insight = () => {
       '회사 정보를 알 수 있는 사이트를 알려드릴게요!',
       options
     );
-
-    setTimeout(() => {
-      bot.sendMessage(
-        chatID,
-        '다른 정보를 보고 싶으시면 /도움말 을 눌러주세요.'
-      );
-    }, 1000);
   });
 };

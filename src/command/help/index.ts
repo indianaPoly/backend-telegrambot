@@ -3,15 +3,11 @@
 import { bot } from '../../config/index';
 
 export const help = () => {
-  bot.onText(/\/도움말/, (msg) => {
+  bot.onText(/\/help/, (msg) => {
     const chatID = msg.chat.id;
 
-    bot.sendMessage(
-      chatID,
-      '[사용 가능한 명령어]\n\n' +
-        '/채용 - 관련직무에 대한 사이트 모아보기\n\n' +
-        '/리뷰 - 기업정보를 확인할 수 있는 사이트 모아보기\n\n' +
-        '/자소서 - 자소서 작성에 도움이 되는 사이트 모아보기\n\n'
-    );
+    const helpMessage = `‼️ 사용 가능한 명령어\n\n📢 /recruiting - 관련 직무에 대한 사이트를 모아볼 수 있습니다.\n\n📝 /review - 기업 리뷰를 확인할 수 있습니다.\n\n✍️ /resume - 자소서 작성에 도움을 받을 수 있습니다.\n\n👉 사용하고 싶은 명령어를 눌러보세요!`;
+
+    bot.sendMessage(chatID, helpMessage);
   });
 };
