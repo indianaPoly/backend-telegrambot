@@ -27,3 +27,11 @@ export const toggleChecklistItem = (itemId: number) => {
     item.id === itemId ? { ...item, checked: !item.checked } : item
   );
 };
+
+export const areAllItemsChecked = () => {
+  return checklistItems.every((item) => item.checked);
+}
+
+export const resetCheckListItems = () => {
+  checklistItems = checklistItems.map((item) => ({ ...item, checked: false}));
+}
