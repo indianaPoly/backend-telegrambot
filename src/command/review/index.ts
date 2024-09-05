@@ -1,6 +1,6 @@
 /** @format */
 
-import { bot } from '../config/telegram';
+import { bot } from '../../config/telegram';
 
 export const insight = () => {
   bot.onText(/\/review/, (msg) => {
