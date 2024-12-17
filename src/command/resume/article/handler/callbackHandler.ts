@@ -20,7 +20,7 @@ export const handleCallbackQuery = (callbackQuery: any) => {
   if (category.startsWith('article_')) {
     bot.sendMessage(
       chatId,
-      `${changeName(category)}에 대한 좋은 글을 알려드릴게요!`,
+      `${changeName(category)}에 대한 좋은 글을 알려드릴게요.`,
       options
     );
   }

@@ -4,7 +4,7 @@ import { getArticleCategoryKeyboard } from './keyboards/articleCategoryKeyboard'
 import { handleCallbackQuery } from './handler/callbackHandler';
 
 export const handleArticles = (msg: any) => {
-  const responseText = '자기소개서 관련 아티클 목록입니다:';
+  const responseText = '자기소개서 관련 아티클 목록입니다.';
   bot.sendMessage(msg.chat.id, responseText, getArticleCategoryKeyboard);
 };
 

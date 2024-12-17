@@ -2,6 +2,7 @@ import { bot } from '../../config/index';
 import { handleChecklist, handleChecklistToggle } from './checklist/index';
 import { handleRecommand } from './recommand/index';
 import { handleArticles } from './article/index';
+import { handleCheckSelling } from './checkSpelling';
 
 export const resume = () => {
   bot.onText(/\/resume/, (msg) => {
@@ -9,6 +10,7 @@ export const resume = () => {
     const options = {
       reply_markup: {
         inline_keyboard: [
+          [{ text: '맞춤법 검사', callback_data: 'checkSpelling' }],
           [{ text: '제출 전 최종점검', callback_data: 'checklist' }],
           [{ text: '자소서 추천 사이트', callback_data: 'recommand' }],
           [{ text: '자기소개서 아티클', callback_data: 'articles' }],
@@ -24,6 +26,10 @@ export const resume = () => {
     const id = callbackQuery.id;
 
     if (msg && data && id) {
+      if (data === 'checkSpelling') {
+        handleCheckSelling(msg);
+      }
+
       if (data === 'checklist') {
         handleChecklist(msg);
       }

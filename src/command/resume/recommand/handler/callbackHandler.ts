@@ -23,7 +23,7 @@ export const handleCallbackQuery = (callbackQuery: CallbackQuery) => {
     if (category.startsWith('recommand_')) {
       bot.sendMessage(
         chatId,
-        `${changeName(category)}에 맞는 사이트를 추천해드릴게요!`,
+        `${changeName(category)}에 맞는 사이트를 추천해드릴게요.`,
         options
       );
     }
