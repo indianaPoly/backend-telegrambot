@@ -1,5 +1,5 @@
-import { bot } from '../config';
-import { initDB } from '../db/initDB';
+import { bot } from '../../config';
+import { initDB } from '../../db/initDB';
 
 export const sendAutoMessage = async () => {
   const db = await initDB();

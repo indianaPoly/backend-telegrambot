@@ -1,6 +1,6 @@
 /** @format */
-import { bot } from '../config/index.js';
-import { initDB } from '../db/initDB.js';
+import { bot } from '../../config/index';
+import { initDB } from '../../db/initDB';
 
 export const start = () => {
   bot.onText(/\/start/, async (msg) => {
